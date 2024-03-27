@@ -18,6 +18,12 @@ const startServer = async () => {
         })
         console.log("Database connected successfully....")
 
+
+        //routes
+        // import authRoutes from "./routes/auth.js"
+
+
+
         // Starting app
         app.listen(PORT, () => {
             console.log(`Server started on port: ${PORT}`)
