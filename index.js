@@ -2,7 +2,7 @@ import express from "express";
 import { config } from "./config/config.js";
 import mongoose from "mongoose";
 
-
+const PORT = config.server.port
 const app = express()
 
 //Middlewares
@@ -18,7 +18,7 @@ const startServer = async () => {
         })
         console.log("Database connected successfully....")
 
-        const PORT = 4400
+        // Starting app
         app.listen(PORT, () => {
             console.log(`Server started on port: ${PORT}`)
         })

@@ -10,9 +10,15 @@ const MONGO_PASSWORD = process.env.MONGO_PASSWORD || "";
 //Connecting to local db
 const MONGO_URL = process.env.MONGO_TEST || "";
 
+//Server
+const SERVER_PORT = process.env.PORT || 4400
+
 export const config = {
     mongo: {
         url: MONGO_URL
+    },
+    server: {
+        port: SERVER_PORT
     }
 }
 
