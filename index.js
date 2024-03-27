@@ -1,6 +1,7 @@
 import express from "express";
 import { config } from "./config/config.js";
 import mongoose from "mongoose";
+import authRoute from "./routes/auth.js"
 
 const PORT = config.server.port
 const app = express()
@@ -20,9 +21,7 @@ const startServer = async () => {
 
 
         //routes
-        // import authRoutes from "./routes/auth.js"
-
-
+        app.use("/api/auth", authRoute)
 
         // Starting app
         app.listen(PORT, () => {
