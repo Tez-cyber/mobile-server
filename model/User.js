@@ -1,4 +1,4 @@
-import mongoosse from "mongoose"
+import mongoose from "mongoose"
 
 const UserSchema = new mongoose.Schema({
     firstname: {
@@ -14,7 +14,7 @@ const UserSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
-    pasword: {
+    password: {
         type: String,
         required: true
     }
