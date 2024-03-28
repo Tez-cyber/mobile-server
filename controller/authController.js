@@ -6,18 +6,23 @@ class App {
     registerUser = async (req, res) => {
         const { firstname, lastname, email, password } = req.body
         try {
-            const salt = await bcrypt.genSalt(10)
-            const hashedPassword = await bcrypt.hash(password, salt)
-            const saved = new User({
-                firstname,
-                lastname,
-                email,
-                password: hashedPassword
-            })
-            const saveUser = await saved.save()
-            res.status(200).json(`${saveUser.firstname}, your account has been created successfully`)
-        }catch(err) {
-           res.status(500).json(err)
+            const checkEmail = await User.findOne({ email })
+            if (checkEmail) {
+                res.json({ mssg: `User with email already exists`})
+            } else {
+                const salt = await bcrypt.genSalt(10)
+                const hashedPassword = await bcrypt.hash(password, salt)
+                const saved = new User({
+                    firstname,
+                    lastname,
+                    email,
+                    password: hashedPassword
+                })
+                const saveUser = await saved.save()
+                res.status(200).json(`${saveUser.firstname}, your account has been created successfully`)
+            }
+        } catch (err) {
+            res.status(500).json(err)
         }
     }
 
@@ -26,17 +31,17 @@ class App {
         const { email, password } = req.body
         try {
             const user = await User.findOne({ email })
-            if(!user) {
+            if (!user) {
                 res.send("Invalid email")
-            }else {
+            } else {
                 const validPassword = await bcrypt.compare(password, user.password)
-                if(validPassword) {
+                if (validPassword) {
                     res.status(200).json(`Welcome, ${user.firstname}`)
-                }else {
+                } else {
                     res.send("Incorrect password")
                 }
             }
-        }catch(err) {
+        } catch (err) {
             res.status(500).json()
         }
     }
