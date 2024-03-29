@@ -1,7 +1,10 @@
 import User from "../model/User.js"
 import bcrypt from "bcryptjs"
+import jwt from "jsonwebtoken"
 class App {
-
+    createToken = (_id) => {
+        return jwt.sign({_id}, process.env.JWT, { expiresIn: "3d" })
+    }
     //------register User
     registerUser = async (req, res) => {
         const { firstname, lastname, email, password } = req.body
@@ -18,8 +21,11 @@ class App {
                     email,
                     password: hashedPassword
                 })
-                const saveUser = await saved.save()
-                res.status(200).json(`${saveUser.firstname}, your account has been created successfully`)
+                const savedUser = await saved.save()
+
+                //---------creating token
+                const token = createToken(savedUser._id)
+                res.status(200).json(`${savedUser.firstname}, your account has been created successfully`)
             }
         } catch (err) {
             res.status(500).json(err)
