@@ -24,7 +24,6 @@ class App {
                 const savedUser = await saved.save()
 
                 //---------creating token
-                const token = createToken(savedUser._id)
                 res.status(200).json(`${savedUser.firstname}, your account has been created successfully`)
             }
         } catch (err) {
@@ -34,19 +33,30 @@ class App {
 
     //-----------login user
     loginUser = async (req, res) => {
-        const { email, password } = req.body
+        // const { email, password } = req.body
         try {
-            const user = await User.findOne({ email })
+            const user = await User.findOne({ email: req.body.email })
             if (!user) {
                 res.send("Invalid email")
             } else {
-                const validPassword = await bcrypt.compare(password, user.password)
-                if (validPassword) {
-                    res.status(200).json(`Welcome, ${user.firstname}`)
-                } else {
-                    res.send("Incorrect password")
+                const validPassword = await bcrypt.compare(req.body.password, user.password)
+                if (!validPassword) {
+
+                    res.status(400).json("Wrong Password")
                 }
             }
+            // const { password, ...otherDetails } = user._doc
+            // res.status(200).json({...otherDetails})
+            const token = jwt.sign(
+                { id: user._id }, 
+                process.env.JWT
+            )
+
+            const { password, ...otherDetails } = user._doc
+
+            res.cookie("access_token", token, {
+                httpOnly: true
+            }).status(200).json({...otherDetails})
         } catch (err) {
             res.status(500).json()
         }
