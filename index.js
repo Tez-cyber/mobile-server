@@ -16,7 +16,7 @@ const startServer = async () => {
     try {
         await mongoose.connect(config.mongo.url, {
             w: "majority",
-            retryWrites: true,
+            retryWrites: true, 
             authMechanism: "DEFAULT"
         })
         console.log("Database connected successfully....")
@@ -25,13 +25,14 @@ const startServer = async () => {
         //routes
         app.use("/api/auth", authRoute)
         app.get("/" , (req, res) => {
-            res.send("Server Launched")
+            res.send("Server Launched") 
         })
 
         // Starting app
         app.listen(PORT, () => {
             console.log(`Server started on port: ${PORT}`)
         })
+
     } catch (err) {
         console.log("Database is not connected..")
     }
