@@ -25,7 +25,7 @@ const startServer = async () => {
         //routes
         app.use("/api/auth", authRoute)
         app.get("/" , (req, res) => {
-            res.send("Server Launched") 
+            res.send("Server is now Launched") 
         })
 
         // Starting app
