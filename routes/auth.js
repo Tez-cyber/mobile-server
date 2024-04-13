@@ -20,7 +20,7 @@ import authController from "../controller/authController.js"
 router.post("/register", authController.registerUser)
 /**
  * @swagger
- * /login:
+ * /api/auth/login:
  *  post:
  *   summary: User Login
  *   description: Allows users to login into respective accounts
