@@ -21,6 +21,10 @@ const UserSchema = new mongoose.Schema({
     accountBalance: {
         type: Number,
         default: ""
+    },
+    transactionHistory: {
+        type: Array,
+        default: []
     }
 }, {
     timestamps: true
