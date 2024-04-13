@@ -8,7 +8,7 @@ const router = express.Router()
  * /api/{id}:
  *  put:
  *   summary: Update user info
- *   description: Allows new user to register info
+ *   description: Allows user to update registered info
  *   parameters: 
  *      - in: path
  *        name: id
