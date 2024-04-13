@@ -23,7 +23,27 @@ const router = express.Router()
  *      '400':
  *          description: Error updating user 
  */
-router.put("/:id", userController.updateUser)  
+router.put("/:id", userController.updateUser)
+/**
+ * @swagger
+ * /api/{id}:
+ *  delete:
+ *   summary: Delete user account
+ *   description: Allows user to delete account
+ *   parameters: 
+ *      - in: path
+ *        name: id
+ *        type: integer
+ *        required: true
+ *        description: User ID
+ *   tags:
+ *    - User Info
+ *   responses:
+ *      '200':
+ *          description: User deleted successfully
+ *      '400':
+ *          description: Error deleting user 
+ */  
 router.delete("/:id", userController.deleteUser)  
 
 export default router
