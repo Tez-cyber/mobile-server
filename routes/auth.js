@@ -18,6 +18,20 @@ import authController from "../controller/authController.js"
  *          description: Error registering user 
  */
 router.post("/register", authController.registerUser)
+/**
+ * @swagger
+ * /login:
+ *  post:
+ *   summary: User Login
+ *   description: Allows users to login into respective accounts
+ *   tags:
+ *      - Authentication
+ *   responses:
+ *      '200':
+ *          description: User logged in successfully
+ *      '400':
+ *          description: Error logging in user 
+ */
 router.post("/login", authController.loginUser)
 
 
