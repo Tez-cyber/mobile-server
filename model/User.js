@@ -19,7 +19,8 @@ const UserSchema = new mongoose.Schema({
         required: true
     },
     accountBalance: {
-        type: Number
+        type: Number,
+        default: ""
     }
 }, {
     timestamps: true
