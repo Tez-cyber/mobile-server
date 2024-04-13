@@ -1,7 +1,7 @@
 import User from "../model/User.js"
 
 class App {
-    //--------------------Update User information
+    //--------------------Update Account information
     updateUser = async (req, res) => {
         try{
             const updatedUser = await User.findByIdAndUpdate(
@@ -10,6 +10,16 @@ class App {
                 {new: true}
             )
             res.status(200).json(updatedUser)
+        }catch(err) {
+            res.status(500).json(err)
+        }
+    }
+    //----------------------Delete acct
+    deleteUser = async (req, res) => {
+        try {
+            await User.findByIdAndDelete(req.params.id)
+
+            res.status(200).json("User account has been deleted")
         }catch(err) {
             res.status(500).json(err)
         }
