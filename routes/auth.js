@@ -5,7 +5,7 @@ import authController from "../controller/authController.js"
 
 /**
  * @swagger
- * /register:
+ * /api/auth/register:
  *  post:
  *   summary: Register user
  *   description: Allows new user to register info
