@@ -19,7 +19,7 @@ const paystack = (req) => {
 
     const verifyPayment = (ref, mycallback) => {
         const options = {
-            url: 'https://api.paystack.co/transaction/initialize',
+            url: 'https://api.paystack.co/transaction/verify'+encodeURIComponent(ref),
             headers: {
                 authorization: MySecretKey,
                 'content-type': 'application/json',
