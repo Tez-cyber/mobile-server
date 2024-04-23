@@ -34,4 +34,4 @@ const paystack = (req) => {
     return { initializePayment, verifyPayment }
 }
 
-module.exports = paystack
+export default paystack
