@@ -57,4 +57,15 @@ class PaymentService {
         })
     }
 
+    paymentReciept(body) {
+        return new Promise(async (resolve, reject) => {
+            try {
+
+            }catch(error) {
+                error.source = 'Payment Receipt';
+                return reject(error)
+            }
+        })
+    }
+
 }
