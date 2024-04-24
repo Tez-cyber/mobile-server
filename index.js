@@ -53,7 +53,7 @@ const startServer = async () => {
         //routes
         app.use("/api/auth", authRoute)
         app.use("/api", userRoute)
-        // app.use("/api/pay", paymentRoute)
+        app.use("/api/pay", paymentRoute)
 
         
         app.get("/", (req, res) => {

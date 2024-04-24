@@ -6,10 +6,10 @@ dotenv.config()
 const MONGO_USERNAME = process.env.MONGO_USERNAME || "";
 const MONGO_PASSWORD = process.env.MONGO_PASSWORD || "";
 // const MONGO_URL = `mongodb+srv://${MONGO_USERNAME}:${MONGO_PASSWORD}@mobilesystem.1zaroed.mongodb.net/`;
-// const MONGO_URL = `mongodb+srv://${MONGO_USERNAME}:${MONGO_PASSWORD}@ameentanceetelecom.mbsfhce.mongodb.net/`
+const MONGO_URL = `mongodb+srv://${MONGO_USERNAME}:${MONGO_PASSWORD}@ameentanceetelecom.mbsfhce.mongodb.net/`
 
 //Connecting to local db
-const MONGO_URL = process.env.MONGO_TEST || "";
+// const MONGO_URL = process.env.MONGO_TEST || "";
 
 // Paystack secret key
 const PAYSTACK_SECRET_KEY = process.env.PAYSTACK_SECRET_KEY

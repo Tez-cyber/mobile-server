@@ -1,7 +1,9 @@
 // import request from "request"
 import Payment from "../model/payment.js"
 import _ from "lodash"
-// import { initializePayment, verifyPayment } from "../utils/payments.js";
+// import paystack, { initializePayment, verifyPayment } from "../utils/payments.js"
+// const initializePayment = paystack.initializePayment
+// const verifyPayment  = paystack.verifyPayment
 
 class PaymentService {
     startPayment(data) {

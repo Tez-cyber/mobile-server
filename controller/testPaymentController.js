@@ -1,4 +1,4 @@
-import { config } from "./config/config.js";
+import { config } from "../config/config.js";
 import https from 'https'
 
 
@@ -23,7 +23,7 @@ const payStack = {
                 path: '/transaction/initialize',
                 method: 'POST',
                 headers: {
-                    Authorization: SECRET_KEY, // where you place your secret key copied from your dashboard
+                    Authorization: `Bearer ${SECRET_KEY}`, // where you place your secret key copied from your dashboard
                     'Content-Type': 'application/json'
                 }
             }
