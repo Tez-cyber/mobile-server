@@ -11,6 +11,9 @@ const MONGO_PASSWORD = process.env.MONGO_PASSWORD || "";
 //Connecting to local db
 const MONGO_URL = process.env.MONGO_TEST || "";
 
+// Paystack secret key
+const PAYSTACK_SECRET_KEY = process.env.PAYSTACK_SECRET_KEY
+
 //Server
 const SERVER_PORT = process.env.PORT || 4400
 
@@ -20,6 +23,9 @@ export const config = {
     },
     server: {
         port: SERVER_PORT 
+    },
+    paystack: {
+        secretKey: PAYSTACK_SECRET_KEY
     }
 }
 

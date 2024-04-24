@@ -1,4 +1,4 @@
-import PaymentService from "../service/payment.service";
+import PaymentService from "../service/payment.service.js";
 
 const paymentInstance = new PaymentService()
 

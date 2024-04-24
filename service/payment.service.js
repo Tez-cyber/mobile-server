@@ -1,8 +1,7 @@
-import request from "request"
+// import request from "request"
 import Payment from "../model/payment.js"
-import lodash, { reject } from "lodash"
-
-import { initializePayment, verifyPayment } from "../utils/payments.js";
+import _ from "lodash"
+// import { initializePayment, verifyPayment } from "../utils/payments.js";
 
 class PaymentService {
     startPayment(data) {
