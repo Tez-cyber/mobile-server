@@ -4,6 +4,7 @@ import { config } from "./config/config.js";
 import mongoose from "mongoose";
 import authRoute from "./routes/auth.js"
 import userRoute from "./routes/user.js"
+import paymentRoute from './routes/payment.routes.js'
 import swaggerjsdoc from "swagger-jsdoc"
 import swaggerui from "swagger-ui-express"
 
@@ -52,6 +53,7 @@ const startServer = async () => {
         //routes
         app.use("/api/auth", authRoute)
         app.use("/api", userRoute)
+        app.use("/api/pay", paymentRoute)
 
         
         app.get("/", (req, res) => {
