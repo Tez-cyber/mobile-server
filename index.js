@@ -60,9 +60,9 @@ const startServer = async () => {
             res.send("Server is now Launched")
         })
         // Starting app
-        // app.listen(PORT, () => {
-        //     console.log(`Server started on port: ${PORT}`)
-        // })
+        app.listen(PORT, () => {
+            console.log(`Server started on port: ${PORT}`)
+        })
 
     } catch (err) {
         console.log("Database is not connected..")
