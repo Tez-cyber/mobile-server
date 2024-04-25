@@ -6,7 +6,7 @@ dotenv.config()
 const MONGO_USERNAME = process.env.MONGO_USERNAME || "";
 const MONGO_PASSWORD = process.env.MONGO_PASSWORD || "";
 // const MONGO_URL = `mongodb+srv://${MONGO_USERNAME}:${MONGO_PASSWORD}@mobilesystem.1zaroed.mongodb.net/`;
-const MONGO_URL = `mongodb+srv://${MONGO_USERNAME}:${MONGO_PASSWORD}@ameentanceetelecom.mbsfhce.mongodb.net/`
+const MONGO_URL = `mongodb+srv://${MONGO_USERNAME}:${MONGO_PASSWORD}@cluster0.8c3pppy.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`
 
 //Connecting to local db
 // const MONGO_URL = process.env.MONGO_TEST || "";

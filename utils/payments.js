@@ -29,7 +29,7 @@ const paystack = (req) => {
         const callback = (err, res, body) => {
             return mycallback(err, body)
         }
-        req(options, callback)
+        req(options, callback) 
     }
     return { initializePayment, verifyPayment }
 }
