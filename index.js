@@ -26,8 +26,6 @@ const startServer = async () => {
         })
         console.log("Database connected successfully....")
 
-
-
         const options = {
             definition: {
                 openai: "3.0.0",
@@ -56,9 +54,7 @@ const startServer = async () => {
         app.use("/api/pay", paymentRoute)
 
         
-        app.get("/", (req, res) => {
-            res.send("Server is now Launched")
-        })
+        
         // Starting app
         app.listen(PORT, () => {
             console.log(`Server started on port: ${PORT}`)
@@ -70,4 +66,37 @@ const startServer = async () => {
 }
 
 startServer()
+//To connect vercel
+const options = {
+    definition: {
+        openai: "3.0.0",
+        info: {
+            title: "Mobile App Server",
+            version: "1.0.0",
+            description: "Swagger documention setup",
+            servers: [
+                {
+                    url: `http://localhost:${PORT}`
+                }
+            ]
+        },
+        schemes: ["http", "https"]
+    },
+    apis: ["./routes/*.js"]
+}
+
+const swaggerSpec = swaggerjsdoc(options)
+app.use(
+    "/api-docs", swaggerui.serve, swaggerui.setup(swaggerSpec)
+)
+//routes
+app.use("/api/auth", authRoute)
+app.use("/api", userRoute)
+app.use("/api/pay", paymentRoute)
+
+
+
+app.get("/", (req, res) => {
+    res.send("Server is now Launched")
+})
 export default app
