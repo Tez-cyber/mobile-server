@@ -9,7 +9,8 @@ import swaggerjsdoc from "swagger-jsdoc"
 import swaggerui from "swagger-ui-express"
 
 
-
+// CDN CSS
+const CSS_URL = "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.1.0/swagger-ui.min.css";
 const PORT = config.server.port
 const app = express()
 
@@ -26,6 +27,7 @@ const startServer = async () => {
         })
         console.log("Database connected successfully....")
 
+        //Implementing SwaggerUI 
         const options = {
             definition: {
                 openai: "3.0.0",
@@ -66,7 +68,7 @@ const startServer = async () => {
 }
 
 startServer()
-//To connect vercel
+//To connect vercel (For delpoyment)
 const options = {
     definition: {
         openai: "3.0.0",
@@ -87,16 +89,17 @@ const options = {
 
 const swaggerSpec = swaggerjsdoc(options)
 app.use(
-    "/api-docs", swaggerui.serve, swaggerui.setup(swaggerSpec)
+    "/api-docs", swaggerui.serve, swaggerui.setup(swaggerSpec, { customCssUrl: CSS_URL })
 )
 //routes
 app.use("/api/auth", authRoute)
 app.use("/api", userRoute)
 app.use("/api/pay", paymentRoute)
 
-
-
+//Get route
 app.get("/", (req, res) => {
     res.send("Server is now Launched")
 })
+
+//Export app
 export default app
