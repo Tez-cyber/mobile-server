@@ -71,7 +71,7 @@ startServer()
 //To connect vercel (For delpoyment)
 const options = {
     definition: {
-        openai: "3.0.0",
+        openapi: "3.0.0",
         info: {
             title: "Mobile App Server",
             version: "1.0.0",
