@@ -48,7 +48,7 @@ const startServer = async () => {
 
         const swaggerSpec = swaggerjsdoc(options)
         app.use(
-            "/api-docs", swaggerui.serve, swaggerui.setup(swaggerSpec)
+            "/api-docs", swaggerui.serve, swaggerui.setup(swaggerSpec, { customCssUrl: CSS_URL })
         )
         //routes
         app.use("/api/auth", authRoute)
