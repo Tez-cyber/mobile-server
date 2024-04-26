@@ -29,8 +29,8 @@ const startServer = async () => {
 
         //Implementing SwaggerUI 
         const options = {
-            definition: {
-                openai: "3.0.0",
+            definition: { 
+                openapi: "3.0.0",
                 info: {
                     title: "Mobile App Server",
                     version: "1.0.0",
